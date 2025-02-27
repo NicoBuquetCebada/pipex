@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   control.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 17:58:36 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/02/27 23:35:59 by nbuquet-         ###   ########.fr       */
+/*   Created: 2025/02/27 20:07:09 by nbuquet-          #+#    #+#             */
+/*   Updated: 2025/02/27 20:08:17 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	main(void)
+void	ft_error(char *error)
 {
-	t_pipex	*pipex;
-
-	pipex = ft_newpipex();
-	if (!pipex)
-		ft_error("pipex");
-	ft_cleanpipex(pipex);
+	perror(error);
+	exit(EXIT_FAILURE);
 }

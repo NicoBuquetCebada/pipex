@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:55:40 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/02/27 19:11:35 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/02/27 23:38:19 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,8 @@ t_pipex	*ft_newpipex(void)
 	if (!pipex)
 		return (NULL);
 	pipex->cmd_paths = (char **)malloc(sizeof(char *));
-	if (!pipex->cmd_paths)
-		return (ft_cleanpipex(pipex));
 	pipex->args = (char ***)malloc(sizeof(char **));
-	if (!pipex->args)
+	if (!pipex->cmd_paths || !pipex->args)
 		return (ft_cleanpipex(pipex));
 	pipex->in = 0;
 	pipex->out = 0;

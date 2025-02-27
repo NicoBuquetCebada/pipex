@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:51:43 by nico              #+#    #+#             */
-/*   Updated: 2025/02/27 19:00:39 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/02/27 23:35:46 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ typedef struct s_pipex
 	char	***args;
 }			t_pipex;
 
+void		ft_error(char *error);
+
 void		ft_cleancmdpaths(char **cmd_paths);
 void		ft_cleanargs(char ***args);
+void		*ft_cleanpipex(t_pipex *pipex);
 t_pipex		*ft_newpipex(void);
 
 #endif
