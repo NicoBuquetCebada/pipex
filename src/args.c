@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 18:57:51 by nico              #+#    #+#             */
-/*   Updated: 2025/03/01 12:48:07 by nbuquet-         ###   ########.fr       */
+/*   Created: 2025/03/02 20:35:00 by nbuquet-          #+#    #+#             */
+/*   Updated: 2025/03/02 23:31:40 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	***ft_parseargs(size_t argc, char **argv)
 {
-	void	*ptr;
+	char	***args;
+	size_t	i;
+	size_t	j;
 
-	ptr = malloc(nmemb * size);
-	if (!ptr)
+	args = (char ***)malloc((argc - 3 + 1) * sizeof(char **));
+	if (!args)
 		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	i = 2;
+	j = 0;
+	while (i < argc - 1)
+	{
+		args[j] = ft_split(ft_strdup(argv[i]), ' ');
+		if (!args[j])
+			return (NULL);
+		i++;
+		j++;
+	}
+	args[j] = NULL;
+	return (args);
 }

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arrlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 20:22:57 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/03/02 16:58:33 by nbuquet-         ###   ########.fr       */
+/*   Created: 2024/09/26 19:31:23 by nico              #+#    #+#             */
+/*   Updated: 2025/03/02 19:59:20 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-size_t	ft_arrlen(char **s)
+char	*ft_strdup(const char *s)
 {
-	size_t	len;
+	char	*dest;
+	size_t	i;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	i = -1;
+	dest = (char *)ft_calloc((ft_strlen(s) + 1), sizeof(char));
+	if (!dest)
+		return (NULL);
+	while (s[++i])
+		dest[i] = s[i];
+	return (dest);
 }

@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 19:52:19 by nico              #+#    #+#             */
-/*   Updated: 2025/03/02 17:18:41 by nbuquet-         ###   ########.fr       */
+/*   Created: 2024/09/26 18:57:51 by nico              #+#    #+#             */
+/*   Updated: 2025/03/02 19:59:36 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	i;
-	size_t	dstlen;
+	void	*ptr;
 
-	dstlen = ft_strlen(dst);
-	if (size == 0 || dstlen >= size)
-		return (ft_strlen(src) + size);
-	i = dstlen;
-	while (i < (size - 1) && src[i - dstlen])
-	{
-		dst[i] = src[i - dstlen];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dstlen + ft_strlen(src));
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }

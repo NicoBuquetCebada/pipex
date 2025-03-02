@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 19:12:51 by nico              #+#    #+#             */
-/*   Updated: 2025/03/01 12:04:04 by nbuquet-         ###   ########.fr       */
+/*   Created: 2024/09/26 19:52:19 by nico              #+#    #+#             */
+/*   Updated: 2025/03/02 19:59:13 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
+	size_t	dstlen;
 
-	i = 0;
-	while ((s1[i] || s2[i]) && i < n)
+	dstlen = ft_strlen(dst);
+	if (size == 0 || dstlen >= size)
+		return (ft_strlen(src) + size);
+	i = dstlen;
+	while (i < (size - 1) && src[i - dstlen])
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		dst[i] = src[i - dstlen];
 		i++;
 	}
-	return (0);
+	dst[i] = '\0';
+	return (dstlen + ft_strlen(src));
 }

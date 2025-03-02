@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:02:02 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/03/02 18:16:47 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/03/02 20:28:05 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char	**ft_parsepaths(const char *envp[], char **cmds)
 		return (NULL);
 	paths = (char **)malloc(ft_arrlen(cmds) + 1 * sizeof(char *));
 	if (!paths)
-		return (ft_freearr(pathenv), NULL);
+		return (NULL);
 	paths = ft_foundpaths(paths, cmds, pathenv);
 	ft_freearr(pathenv);
 	if (ft_chekvldty(paths, ft_arrlen(cmds)))

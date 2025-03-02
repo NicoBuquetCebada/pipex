@@ -6,11 +6,11 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 23:39:07 by nico              #+#    #+#             */
-/*   Updated: 2025/03/02 17:48:59 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/03/02 19:59:27 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
 char	**ft_freearr(char **dst)
 {

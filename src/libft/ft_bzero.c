@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 20:22:57 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/03/01 12:43:43 by nbuquet-         ###   ########.fr       */
+/*   Created: 2024/09/18 20:57:26 by nico              #+#    #+#             */
+/*   Updated: 2025/03/02 19:59:51 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t	len;
+	unsigned char	*ptr;
+	size_t			i;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	ptr = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+		ptr[i++] = '\0';
 }
