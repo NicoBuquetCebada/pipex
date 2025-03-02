@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 17:58:36 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/03/02 17:51:43 by nbuquet-         ###   ########.fr       */
+/*   Created: 2024/09/19 19:12:51 by nico              #+#    #+#             */
+/*   Updated: 2025/03/01 12:04:04 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	main(/* int argc, char *argv[], const char *envp[] */)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_pipex				*pipex;
-	extern const char	**environ;
-	char	*cmds[2];
+	size_t	i;
 
-	pipex = ft_newpipex();
-	if (!pipex)
-		ft_error("pipex");
-
-	cmds[0] = "c_formatter_42";
-	cmds[1] = "wc";
-	pipex->cmd_paths = ft_parsepaths(environ, cmds);
-	printf("\n* CMD PATHS *\n----------\n");
-	for (int i = 0; pipex->cmd_paths[i] != NULL; i++)
+	i = 0;
+	while ((s1[i] || s2[i]) && i < n)
 	{
-		printf("%s\n", pipex->cmd_paths[i]);
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
 	}
-	ft_cleanpipex(pipex);
+	return (0);
 }

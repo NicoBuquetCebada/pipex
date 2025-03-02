@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 17:58:36 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/03/02 17:51:43 by nbuquet-         ###   ########.fr       */
+/*   Created: 2024/09/26 19:52:19 by nico              #+#    #+#             */
+/*   Updated: 2025/03/02 17:18:41 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	main(/* int argc, char *argv[], const char *envp[] */)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	t_pipex				*pipex;
-	extern const char	**environ;
-	char	*cmds[2];
+	size_t	i;
+	size_t	dstlen;
 
-	pipex = ft_newpipex();
-	if (!pipex)
-		ft_error("pipex");
-
-	cmds[0] = "c_formatter_42";
-	cmds[1] = "wc";
-	pipex->cmd_paths = ft_parsepaths(environ, cmds);
-	printf("\n* CMD PATHS *\n----------\n");
-	for (int i = 0; pipex->cmd_paths[i] != NULL; i++)
+	dstlen = ft_strlen(dst);
+	if (size == 0 || dstlen >= size)
+		return (ft_strlen(src) + size);
+	i = dstlen;
+	while (i < (size - 1) && src[i - dstlen])
 	{
-		printf("%s\n", pipex->cmd_paths[i]);
+		dst[i] = src[i - dstlen];
+		i++;
 	}
-	ft_cleanpipex(pipex);
+	dst[i] = '\0';
+	return (dstlen + ft_strlen(src));
 }
