@@ -6,11 +6,26 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 20:35:00 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/03/02 23:31:40 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/03/06 20:01:52 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+char	**ft_getcmds(size_t cmdc, char ***args)
+{
+	char	**cmds;
+	size_t	i;
+
+	cmds = (char **)malloc((cmdc + 1) * sizeof(char *));
+	if (!cmds)
+		return (NULL);
+	i = -1;
+	while(args[++i])
+		cmds[i] = args[i][0];
+	cmds[i] = NULL;
+	return (cmds);
+}
 
 char	***ft_parseargs(size_t argc, char **argv)
 {
@@ -18,6 +33,8 @@ char	***ft_parseargs(size_t argc, char **argv)
 	size_t	i;
 	size_t	j;
 
+	if (argc < 6)
+		return (NULL);
 	args = (char ***)malloc((argc - 3 + 1) * sizeof(char **));
 	if (!args)
 		return (NULL);

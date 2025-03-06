@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 23:39:07 by nico              #+#    #+#             */
-/*   Updated: 2025/03/02 19:59:27 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/03/06 19:24:49 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	**ft_split(char const *s, char c)
 
 	dst = (char **)malloc((ft_wrdcnt(s, c) + 1) * (sizeof(char *)));
 	if (!dst)
-		return (NULL);
+		return (free((void *)s), NULL);
 	i = 0;
 	index = 0;
 	while (s[i])
@@ -89,7 +89,7 @@ char	**ft_split(char const *s, char c)
 			while (s[i] != c && s[i])
 				i++;
 			if (!ft_splitcpy(&dst[index++], s, start, i))
-				return (ft_freearr(dst));
+				return (free((void *)s), ft_freearr(dst));
 		}
 	}
 	dst[index] = NULL;

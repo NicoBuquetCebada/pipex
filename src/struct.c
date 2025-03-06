@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:55:40 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/03/02 23:26:24 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/03/06 19:59:34 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,7 @@ t_pipex	*ft_newpipex(void)
 	pipex = (t_pipex *)malloc(sizeof(t_pipex));
 	if (!pipex)
 		return (NULL);
-	pipex->cmd_paths = NULL;
 	pipex->args = NULL;
-	pipex->in = 0;
-	pipex->out = 0;
+	pipex->cmd_paths = NULL;
 	return (pipex);
 }
