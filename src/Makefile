@@ -3,7 +3,8 @@ SRCS =	pipex.c\
 		struct.c\
 		control.c\
 		cmdpaths.c\
-		args.c
+		args.c\
+		processes.c
 
 OBJS = $(SRCS:.c=.o)
 INCL = pipex.h

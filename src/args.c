@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 20:35:00 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/03/06 20:01:52 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/03/06 20:32:06 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	***ft_parseargs(size_t argc, char **argv)
 	size_t	i;
 	size_t	j;
 
-	if (argc < 6)
+	if (argc < 5)
 		return (NULL);
 	args = (char ***)malloc((argc - 3 + 1) * sizeof(char **));
 	if (!args)

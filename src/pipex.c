@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:58:36 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/03/06 20:03:48 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/03/06 20:30:07 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char *argv[], const char *envp[])
 	pipex->cmd_paths = ft_parsepaths(envp, cmds);
 	if (!pipex->cmd_paths)
 		ft_error("pipex", pipex);
-	ft_success(pipex, cmds);
+	ft_execpipex(pipex->args, pipex->cmd_paths);
 }
 /* 	// CMD PATHS
 	for (int i = 0; pipex->cmd_paths[i]; i++)
