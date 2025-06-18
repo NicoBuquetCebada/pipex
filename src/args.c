@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 20:35:00 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/03/06 20:32:06 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/06/17 19:26:43 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	**ft_getcmds(size_t cmdc, char ***args)
 	if (!cmds)
 		return (NULL);
 	i = -1;
-	while(args[++i])
+	while (args[++i])
 		cmds[i] = args[i][0];
 	cmds[i] = NULL;
 	return (cmds);
@@ -50,4 +50,17 @@ char	***ft_parseargs(size_t argc, char **argv)
 	}
 	args[j] = NULL;
 	return (args);
+}
+
+char	**ft_parsefiles(char **argv)
+{
+	char	**files;
+
+	files = (char **)malloc((2 + 1) * sizeof(char *));
+	if (!files)
+		return (NULL);
+	files[0] = argv[1];
+	files[1] = argv[4];
+	files[3] = NULL;
+	return (files);
 }

@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:51:43 by nico              #+#    #+#             */
-/*   Updated: 2025/03/06 20:48:53 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/06/18 18:07:18 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ t_pipex		*ft_newpipex(void);
 char		***ft_parseargs(size_t argc, char **argv);
 char		**ft_getcmds(size_t cmdc, char ***args);
 char		**ft_parsepaths(const char *envp[], char **cmds);
-int			ft_execpipex(char ***args, char **cmd_paths);
+char		**ft_parsefiles(char **args);
+
+void		ft_exec(int *fd, int *in, char **cmd_paths, char ***args);
+int			ft_execpipex(char ***args, char **cmd_paths, char **files);
 
 #endif

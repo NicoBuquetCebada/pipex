@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:02:02 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/03/06 19:49:06 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/06/18 18:24:36 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static char	*ft_checkpath(char *env, char *cmd)
 	char	*path;
 	size_t	total_s;
 
-	// because of the '/' total_s is 1 more
 	total_s = ft_strlen(env) + ft_strlen(cmd) + 1;
 	path = ft_calloc(total_s + 1, sizeof(char));
 	if (!path)
