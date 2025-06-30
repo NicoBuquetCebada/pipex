@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:58:36 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/06/18 18:21:52 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/06/30 12:49:10 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ int	main(int argc, char *argv[], const char *envp[])
 	if (!pipex->cmd_paths)
 		ft_pipexerror(pipex);
 	files = ft_parsefiles(argv);
+	if (!files)
+		ft_error("access", pipex, files);
 	error = ft_execpipex(pipex->args, pipex->cmd_paths, files);
 	if (error == -1)
-		ft_error("pipe", pipex);
+		ft_error("pipe", pipex, files);
 	if (error == -2)
-		ft_error("fork", pipex);
+		ft_error("fork", pipex, files);
 }

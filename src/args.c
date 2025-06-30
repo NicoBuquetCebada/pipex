@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 20:35:00 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/06/17 19:26:43 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/06/30 12:55:00 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ char	**ft_parsefiles(char **argv)
 	files = (char **)malloc((2 + 1) * sizeof(char *));
 	if (!files)
 		return (NULL);
-	files[0] = argv[1];
-	files[1] = argv[4];
-	files[3] = NULL;
+	files[0] = ft_strdup(argv[1]);
+	files[1] = ft_strdup(argv[4]);
+	files[2] = NULL;
+	if (access(files[0], F_OK) == -1)
+		return (NULL);
 	return (files);
 }
