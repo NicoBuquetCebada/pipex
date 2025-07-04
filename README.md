@@ -9,5 +9,6 @@ Being executed as follows:
 ```bash
 $> ./pipex infile cmd1 | cmd2 outfile
 ```
+Mark:
 
 ![mark:100](Mark.png)
